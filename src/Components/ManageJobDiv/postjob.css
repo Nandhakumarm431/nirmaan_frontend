@@ -1,0 +1,85 @@
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+.jm-post-job-wrapper input[type=text] {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 15px;
+    border: 1px solid #f1f1f1;
+    padding: 0 20px;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.jm-post-job-wrapper .jm-job-select {
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 0;
+    border: 1px solid #f1f1f1;
+    background-color: #fff;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: normal;
+    outline: none;
+    position: relative;
+    text-align: left !important;
+}
+
+.mt-25 {
+    margin-top: 25px;
+}
+
+.jm-theme-btn {
+    font-size: 16px;
+    font-weight: 400;
+    display: inline-block;
+    padding: 11px 30px;
+    color: #fff;
+    border-radius: 0;
+    background: #00B04D;
+    cursor: pointer;
+    margin-bottom: 0;
+    text-align: center;
+    text-transform: capitalize;
+
+    white-space: nowrap;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 1200px) {
+    .col-xl-12 {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .col-xl-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+}

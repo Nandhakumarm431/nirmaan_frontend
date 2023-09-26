@@ -1,0 +1,95 @@
+.mb-30 {
+    margin-bottom: 30px ;
+}
+
+.section-box {
+    display: inline-block;
+    width: 100%;
+    overflow: visible;
+    margin-top: 50px;
+}
+
+
+.box-we-hiring {
+    max-width: 90%;
+    border: 1px solid #e0e6f7;
+    padding: 40px 250px 40px 190px;
+    position: relative;
+    display: flex;
+    box-shadow: 0 10px 20px -5px rgba(10, 42, 105, .06);
+    margin: auto;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.box-we-hiring:after,
+.box-we-hiring:before {
+    content: "";
+    position: absolute;
+    bottom: 15px;
+    height: 120px;
+}
+
+.box-we-hiring:before {
+    left: 15px;
+    width: 150px;
+    background: url('../../../assets/images/bg-left-hiring.cc0e2e85.svg') no-repeat 0 0;
+    background-size: cover;
+}
+
+.box-we-hiring .text-we-are {
+    font-size: 16px;
+    line-height: 20px;
+    color: #a0abb8;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+}
+
+.box-we-hiring .text-hiring {
+    font-size: 49px;
+    line-height: 51px;
+    color: #05264e;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+.box-we-hiring .text-2 {
+    font-size: 18px;
+    line-height: 23px;
+    color: #66789c;
+    font-weight: 500;
+    padding: 29px 20px 0;
+}
+
+.color-brand-1 {
+    color: #05264e ;
+}
+
+.box-we-hiring .text-3 {
+    padding: 34px 0 0 20px;
+}
+
+.btn-apply-icon {
+    background-image: url('../../../assets/images/apply.ae2f83c4.svg');
+    background-position: 15px 11px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}
+
+.btn-apply {
+    background-color: #3c65f5;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 4px;
+}
+
+.box-we-hiring:after {
+    right: -5px;
+    width: 250px;
+    background: url('../../../assets/images/bg-right-hiring.0dfda9a2.svg') no-repeat 0 0;
+    background-size: cover;
+}

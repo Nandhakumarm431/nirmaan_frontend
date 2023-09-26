@@ -1,0 +1,173 @@
+.jobContainer {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 2.5rem;
+
+}
+
+.singleJob {
+    display: grid;
+    width: 250px;
+    /* 256px */
+    padding: 20px;
+    /* 80px */
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.singleJob:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    box-shadow: #374151;
+
+}
+
+.group:hover {
+    background: #8fa6e0;
+    color: #fff;
+}
+
+.job_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    /* 16px */
+}
+
+.text-jobtitle {
+    font-size: 16px;
+    width: 70%;
+    font-weight: 600;
+    color: #000;
+}
+
+.text-jobtitle:hover {
+    color: #fff;
+}
+
+.text-jobdate {
+    display: flex;
+    align-items: center;
+    color: #000;
+    gap: 0.3rem;
+}
+
+.time-text {
+    font-size: 10px;
+}
+
+.text-joblocation {
+    color: #000;
+}
+
+.text-description {
+    font-size: 13px;
+    /* color: #959595; */
+    color: #000;
+
+    padding-top: 20px;
+    border-top: 2px;
+    margin-top: 20px;
+}
+
+.company-details {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* 8px */
+
+}
+
+.company-logo {
+    width: 20%;
+    height: 30%;
+}
+
+.company-name {
+    font-size: 14px;
+    padding: 1rem 0;
+    display: block;
+}
+
+.company-name:hover {
+    color: #fff;
+}
+
+.apply-btn {
+    border-width: 2px;
+    border-radius: 10px;
+    display: block;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.apply-btn:hover {
+    background-color: #fff;
+
+}
+
+.table-container-view {
+    margin-top: 5px;
+}
+
+.head-notify {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid black;
+}
+
+.head-notify span {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.table-view-mode {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    /* padding-right: 20px; */
+}
+
+.card-view-data {
+    width: 260px;
+    height: 100%;
+}
+
+.card-view-data:hover {
+    background-color: aquamarine;
+
+}
+
+.btn-link {
+    color: #2734ae;
+    border: 1px solid #27ae601f;
+    background: #fff;
+}
+
+.viewmode-buton {
+    background-color: #fff;
+    color: #000;
+    font-size: 25px;
+    padding: 0;
+}
+
+.box-card {
+    margin-top: 6px;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}

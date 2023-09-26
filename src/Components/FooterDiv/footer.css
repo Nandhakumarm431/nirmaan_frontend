@@ -1,0 +1,129 @@
+.mt-50 {
+    margin-top: 50px;
+}
+
+footer {
+    background: rgb(176, 183, 197);
+    padding: 20px 0;
+}
+footer .container .row{
+    justify-content: center;
+    align-items: center;
+
+}
+.footer .footer-col-1 {
+    flex: 0 0 auto;
+    /* width: 50%; */
+}
+
+a {
+    text-decoration: none;
+    color: #05264e;
+}
+
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+footer .menu-footer li a:hover {
+    color: #05264e;
+}
+
+.color-text-paragraph-1 {
+    color: #05264e;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: justify;
+    line-height: 1.5;
+    padding-right: 20px;
+}
+
+.font-xs {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.icon-facebook {
+    background: url('../../assets/images/facebook.2e17f4c2.svg') no-repeat 0 0;
+    transition-duration: .2s;
+}
+
+.icon-twitter {
+    background: url('../../assets/images/twitter.0474a04e.svg') no-repeat 0 0;
+    transition-duration: .2s;
+}
+
+.icon-linkedin {
+    background: url('../../assets/images/linkedin.5209505e.svg') no-repeat 0 0;
+    transition-duration: .2s;
+}
+
+.footer .icon-socials {
+    display: inline-block;
+    margin-right: 10px;
+    height: 30px;
+    width: 30px;
+    transition-duration: .2s;
+}
+
+.footer .footer-col-2,
+.footer .footer-col-3,
+.footer .footer-col-4,
+.footer .footer-col-5 {
+    flex: 0 0 auto;
+    width: 14%;
+}
+
+
+h6 {
+    font-size: 16px;
+}
+
+h5,
+h6 {
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+
+}
+
+.footer .menu-footer {
+    display: inline-block;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+.footer .menu-footer li {
+    list-style: none;
+    margin-bottom: 4px;
+}
+
+footer .menu-footer li a {
+    color: #4f5e64;
+    font-size: 14px;
+    text-decoration: none;
+    transition-duration: .2s;
+}
+
+a {
+    background-color: transparent;
+}
+
+.footer .footer-col-6 {
+    flex: 0 0 auto;
+    width: 20%;
+}
+
+.logo-img {
+    width: 150px;
+    height: 70px;
+}
