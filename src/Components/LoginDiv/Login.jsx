@@ -329,7 +329,7 @@ const Login = ({ isOpen, onClose }) => {
                                         <div id="login-modal" style={{ display: regStyleChange ? "block" : 'none' }} >
                                             <div className="login-form default-form">
                                                 <div className="form-inner">
-                                                    <h3>Verify you Account</h3>
+                                                    <h3>Verify your Account</h3>
 
                                                     <form method="post" onSubmit={accountVerify}>
                                                         <div className="form-group1">

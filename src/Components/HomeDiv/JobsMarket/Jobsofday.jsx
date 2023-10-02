@@ -42,7 +42,7 @@ const Jobsofday = () => {
                     <h2 className="section-title mb-10 ">
                         Jobs of the day
                     </h2>
-                    <p className="font-lg color-text-paragraph-2 ">
+                    <p className="font-lg color-text-paragraph-3 ">
                         Search and connect with the right candidates faster.
                     </p>
                 </div>
@@ -66,7 +66,7 @@ const Jobsofday = () => {
             <section className='section-box overflow-visible mt-100 mb-100'>
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-lg-6 col-sm-12'>
+                        <div className='col-lg-7 col-sm-12'>
                             <div className="box-image-job">
                                 <img className="img-job-1" alt="jobBox" src={imgChart} />
                                 <img className="img-job-2" alt="jobBox" src={controlcard} />
@@ -75,7 +75,7 @@ const Jobsofday = () => {
                                 </figure>
                             </div>
                         </div>
-                        <div className='col-lg-6 col-sm-12'>
+                        <div className='col-lg-5 col-sm-12'>
                             <div className='content-job-inner'>
                                 <span className="color-text-mutted text-32">Millions Of Jobs. </span>
                                 <h2 className="text-52 ">Find The One That’s <span className="color-brand-2">Right</span> For You</h2>

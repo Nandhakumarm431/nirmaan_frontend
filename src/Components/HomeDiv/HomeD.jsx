@@ -73,11 +73,11 @@ const HomeD = () => {
     return (
         <main className='main'>
             <div className="bg-homepage1"></div>
-            <section className='section-box'>
+            <section className='section-box-home'>
                 <div className='banner-hero hero-1'>
                     <div className='banner-inner'>
                         <div className="row">
-                            <div className='col-xl-9 col-lg-12'>
+                            <div className='col-xl-9 '>
                                 <div className='block-banner'>
                                     <h1 className="heading-banner ">
                                         The
@@ -126,14 +126,14 @@ const HomeD = () => {
                                             <Link className="active"
                                                 // to='/Jobscard' 
                                                 to={{ pathname: '/Jobscard', state: { data: selectedText, input: searchData } }}>
-                                                <button className="btn btn-default btn-find font-sm">Search</button>
+                                                <button className="btn btn-default btn-find">Search</button>
                                             </Link>
                                         </form>
                                     </div>
                                     <div className="list-tags-banner mt-60 " data-wow-delay=".3s">
                                         <strong>Popular Searches:</strong>
                                         {quickSearch === undefined ?
-                                            <a></a> :
+                                            <a href='F'>sample</a> :
                                             quickSearch.map((item) => (
                                                 <Link to={{ pathname: '/Jobscard', state: { data: selectedText, input: item.searchname } }}
                                                     key={item.id}>{item.searchname}, </Link>
@@ -142,7 +142,8 @@ const HomeD = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-xl-3 col-lg-12 d-xl-block col-md-6'>
+                            <div className='col-xl-3 d-none d-xl-block'>
+                                {/* col-lg-12 d-xl-block col-md-6 */}
                                 <div className="banner-imgs">
                                     <div className="block-1 shape-1">
                                         <img className="img-responsive" alt="jobBox" src={banner1} />

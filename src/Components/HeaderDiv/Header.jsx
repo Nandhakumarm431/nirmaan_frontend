@@ -29,11 +29,11 @@ const Header = () => {
     ]
 
     const profileNav = [
-        { id: 1, url: "/managejobs", navLink: "Manage Jobs" },
+        { id: 1, url: "/dashboard/managejob", navLink: "Manage Jobs" },
         role === "ROLE_USER" ?
             { id: 2, url: "/myprofile", navLink: "My Profile" } :
             { id: 2, url: "/dashboard", navLink: "Dashboard" },
-        { id: 3, url: "/bookmarkjobs", navLink: "Bookmarks Jobs" },
+        { id: 3, url: "/dashboard", navLink: "Bookmarks Jobs" },
         { id: 4, url: "/logout", navLink: "Logout" },
     ]
 

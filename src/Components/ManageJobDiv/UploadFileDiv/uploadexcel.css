@@ -1,0 +1,22 @@
+.btn-sendfile {
+    position: relative;
+    border: 0;
+    text-align: center;
+    white-space: nowrap;
+    color: #fff;
+    background-color: #1967d2;
+    font-size: 13px;
+    border-radius: 8px;
+    font-weight: 400;
+    padding: 10px 15px 10px;
+
+}
+
+#input-body {
+    border: 0;
+}
+
+#uploadfile-input {
+    padding: 20px;
+
+}

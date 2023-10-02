@@ -1,5 +1,5 @@
 .mb-30 {
-    margin-bottom: 30px ;
+    margin-bottom: 30px;
 }
 
 .section-box {
@@ -66,7 +66,7 @@
 }
 
 .color-brand-1 {
-    color: #05264e ;
+    color: #05264e;
 }
 
 .box-we-hiring .text-3 {
@@ -92,4 +92,16 @@
     width: 250px;
     background: url('../../../assets/images/bg-right-hiring.0dfda9a2.svg') no-repeat 0 0;
     background-size: cover;
+}
+
+@media (max-width: 1199.98px) {
+    .box-we-hiring {
+        max-width: 100%;
+        padding: 20px 10px 20px 120px;
+    }
+
+    .box-we-hiring:before {
+        height: 89px;
+        width: 90px;
+    }
 }

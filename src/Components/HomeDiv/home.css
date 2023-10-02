@@ -17,7 +17,7 @@ main {
     right: 0;
 }
 
-.section-box {
+.section-box-home {
     display: inline-block;
     width: 100%;
     overflow: visible;
@@ -240,9 +240,8 @@ input[type=email],
 input[type=tel],
 input[type=text],
 input[type=time] {
-    border: 1px solid #e0e6f7;
+    /* border: 1px solid #e0e6f7; */
     border-radius: 4px;
-    /* height: 50px; */
     box-shadow: none;
     padding-left: 20px;
     font-size: 14px;
@@ -355,8 +354,23 @@ a {
     margin-top: 100px;
 }
 
+.d-none {
+    display: none !important;
+}
+
 @media (min-width: 992px) {
     .d-lg-block {
         display: block;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-xl-8 {
+        flex: 0 0 auto;
+        width: 66.6666666667%;
+    }
+
+    .d-xl-block {
+        display: block !important;
     }
 }

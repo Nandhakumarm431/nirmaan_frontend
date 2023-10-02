@@ -157,7 +157,7 @@ const Jobscard = () => {
                                 <h3>
                                     <span className="color-brand-2">{allJobsDetails === undefined ? 0 : allJobsDetails.length} jobs</span> Available Now
                                 </h3>
-                                <div className="font-sm color-text-paragraph-2 mt-10 " data-wow-delay=".1s">
+                                <div className="font-sm color-text-paragraph-3 mt-10 " data-wow-delay=".1s">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero repellendus magni,
                                     <br className="d-xl-block" />atque delectus molestias quis?
                                 </div>
@@ -201,7 +201,9 @@ const Jobscard = () => {
                                                     <div className="box-view-type" onClick={() => setcardViewmode(!cardViewmode)}>
                                                         {cardViewmode ?
                                                             // <img src={iconList} alt="jobBox" /> 
-                                                            <BsTable className='gridicon' /> : <BsCardText className='gridicon' />}
+                                                            <BsTable className='gridicon' /> :
+                                                            <BsCardText className='gridicon' />
+                                                        }
                                                         {/* <img src={iconGrid} alt="jobBox" /> */}
 
                                                     </div>
@@ -268,18 +270,16 @@ const Jobscard = () => {
                                                         </Box>
                                                     </> :
                                                     <TableContainer className='table-container-view' sx={{ maxHeight: 500 }}>
-                                                        <Table stickyHeader
-                                                            // aria-label="sticky table"
-                                                            size="small" aria-label="a dense table">
+                                                        <Table  >
                                                             <TableHead className='table-header'>
-                                                                <TableRow>
-                                                                    <TableCell style={{ fontWeight: '600', minWidth: '100px', backgroundColor: '#a4aba6' }}>Post Date</TableCell>
-                                                                    <TableCell style={{ fontWeight: '600', minWidth: '100px', backgroundColor: '#a4aba6' }}>Recruitment Board</TableCell>
-                                                                    <TableCell style={{ fontWeight: '600', minWidth: '100px', backgroundColor: '#a4aba6' }}>Post Name</TableCell>
-                                                                    <TableCell style={{ fontWeight: '600', minWidth: '100px', backgroundColor: '#a4aba6' }}>Qualification</TableCell>
-                                                                    <TableCell style={{ fontWeight: '600', minWidth: '100px', backgroundColor: '#a4aba6' }}>Advt No</TableCell>
-                                                                    <TableCell style={{ fontWeight: '600', minWidth: '140px', backgroundColor: '#a4aba6' }}>Last Date</TableCell>
-                                                                    <TableCell style={{ fontWeight: '600', minWidth: '100px', backgroundColor: '#a4aba6' }}>More Information</TableCell>
+                                                                <TableRow className='table-row'>
+                                                                    <TableCell className='table-cell' style={{ color:'#1967d2', fontWeight: '600', minWidth: '120px' }}>Post Date</TableCell>
+                                                                    <TableCell className='table-cell' style={{ color:'#1967d2', fontWeight: '600',  minWidth: '100px' }}>Recruitment Board</TableCell>
+                                                                    <TableCell className='table-cell' style={{ color:'#1967d2', fontWeight: '600',  minWidth: '100px' }}>Post Name</TableCell>
+                                                                    <TableCell className='table-cell' style={{ color:'#1967d2', fontWeight: '600',  minWidth: '100px' }}>Qualification</TableCell>
+                                                                    <TableCell className='table-cell' style={{ color:'#1967d2', fontWeight: '600',  minWidth: '100px' }}>Advt No</TableCell>
+                                                                    <TableCell className='table-cell' style={{ color:'#1967d2', fontWeight: '600',  minWidth: '120px' }}>Last Date</TableCell>
+                                                                    <TableCell className='table-cell' style={{ color:'#1967d2', fontWeight: '600',  minWidth: '100px' }}>More Info</TableCell>
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>

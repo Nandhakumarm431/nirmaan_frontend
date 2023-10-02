@@ -1,0 +1,44 @@
+.ls-widget {
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(64, 79, 104, .05);
+    margin-bottom: 30px;
+}
+
+.tabs-box {
+    position: relative;
+}
+
+.ls-widget .widget-content {
+    position: relative;
+    padding: 0 30px 10px;
+}
+
+.text-field-input {
+    position: relative;
+    display: block;
+    height: 40px;
+    font-size: 15px;
+    padding-left: 20px;
+    background-color: #fff;
+    border: 1px solid #d4d2d2;
+}
+
+.text-field-input:focus {
+    border-color: #1967d2;
+    background-color: #fff;
+}
+
+.form-group12 {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group12>label {
+    font-size: 15px;
+    line-height: 20px;
+    color: #202124;
+    font-weight: 600;
+    margin-bottom: 10px;
+}

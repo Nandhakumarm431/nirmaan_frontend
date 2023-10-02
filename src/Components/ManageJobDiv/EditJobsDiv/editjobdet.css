@@ -1,55 +1,55 @@
-.modal.fade .modal-dialog {
-    transition: transform .3s ease-out;
-    transform: translateY(-50px);
-}
-
-.login-modal {
-    max-width: 500px;
+.editjob-editjobmodal {
+    max-width: 900px;
     box-shadow: 0 6px 15px rgba(64, 79, 104, .05);
     border-radius: 8px;
+    margin: 50px auto;
+
 }
 
-.modal-dialog-centered {
+.editjobmodal-dialog-centered {
     display: flex;
     align-items: center;
-    min-height: calc(100% - var(--bs-modal-margin)*2);
 }
 
-/* 
-.modal-dialog-scrollable {
-    height: calc(100% - var(--bs-modal-margin)*2);
-} */
 
-.modal-dialog {
+.editjobmodal-dialog {
     position: relative;
     width: auto;
-    margin: var(--bs-modal-margin);
     pointer-events: none;
 }
 
 
 
-.modal-dialog-scrollable .modal-content {
-    max-height: 100%;
+.editjobmodal-dialog-scrollable .editjobmodal-content {
+    max-height: 50%;
     overflow: hidden;
 }
 
-.modal-content {
+.editjobmodal-content {
     position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 30px;
-    color: var(--bs-modal-color);
+    /* margin-top: 30px; */
     pointer-events: auto;
-    background-color: var(--bs-modal-bg);
+    background-color: #fff;
     background-clip: padding-box;
-    border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
-    border-radius: var(--bs-modal-border-radius);
+    border: 1px solid rgba(0, 0, 0, .175);
+    border-radius: 0.5rem;
     outline: 0;
 }
 
-.closed-modal:before {
+.jm-post-job-wrapper input[type=text],
+input[type=date] {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 15px;
+    border: 1px solid #f1f1f1;
+    padding: 0 20px;
+}
+
+.closed-editjobmodal:before {
     font-family: 'Flaticon';
     position: relative;
     font-size: 12px;
@@ -57,8 +57,8 @@
     font-weight: 700;
 }
 
-.closed-modal,
-.closed-modal:before {
+.closed-editjobmodal,
+.closed-editjobmodal:before {
     width: 20px;
     display: flex;
     justify-content: center;
@@ -66,11 +66,11 @@
     transition: .3s;
 }
 
-.closed-modal:hover {
+.closed-editjobmodal:hover {
     cursor: pointer;
 }
 
-.closed-modal {
+.closed-editjobmodal {
     position: absolute;
     height: 40px;
     right: 10px;
@@ -83,40 +83,45 @@
     z-index: 5;
 }
 
-.login-modal .modal-body {
+.editjob-editjobmodal .editjobmodal-body {
     padding: 0;
 }
 
-/* 
-.modal-dialog-scrollable .modal-body {
-    overflow-y: auto;
-} */
-
-.modal-body {
+.editjobmodal-body {
     position: relative;
     flex: 1 1 auto;
-    padding: var(--bs-modal-padding);
 }
 
-#login-modal {
+#editjob-editjobmodal {
     padding: 30px 40px 20px;
     background: #fff;
     border-radius: 8px;
     box-shadow: none;
 }
 
+.forms-controfl {
+    display: flex;
+    align-items: center;
+}
+
+.forms-controfl label {
+    min-width: fit-content;
+    text-align: right;
+    padding-right: 10px;
+    padding-bottom: 13px;
+}
 
 .default-form {
     position: relative;
 }
 
-#login-modal .login-form .h3,
-#login-modal .login-form h3 {
+#editjob-editjobmodal .editjob-form .h3,
+#editjob-editjobmodal .editjob-form h3 {
     text-align: center;
 }
 
-.login-form .h3,
-.login-form h3 {
+.editjob-form .h3,
+.editjob-form h3 {
     font-weight: 500;
     font-size: 24px;
     line-height: 33px;
@@ -146,26 +151,6 @@ label {
     display: inline-block;
 }
 
-.default-form .form-group1 input[type=email],
-.default-form .form-group1 input[type=number],
-.default-form .form-group1 input[type=password],
-.default-form .form-group1 input[type=text],
-.default-form .form-group1 input[type=url] {
-    position: relative;
-    width: 100%;
-    display: block;
-    height: 40px;
-    line-height: 30px;
-    padding: 15px 20px;
-    font-size: 15px;
-    color: dimgray;
-    background-color: #f0f5f7;
-    border: 1px solid #f0f5f7;
-    box-sizing: border-box;
-    border-radius: 8px;
-    transition: all .3s ease;
-}
-
 button,
 input,
 optgroup,
@@ -177,7 +162,7 @@ textarea {
     line-height: inherit;
 }
 
-.login-form .field-outer {
+.editjob-form .field-outer {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -226,7 +211,7 @@ textarea {
     border-bottom-left-radius: 0;
 }
 
-.login-form .field-outer label {
+.editjob-form .field-outer label {
     margin-bottom: 0;
 }
 
@@ -270,7 +255,7 @@ textarea {
     color: #909090;
 }
 
-.login-form .field-outer .pwd {
+.editjob-form .field-outer .pwd {
     position: relative;
     display: block;
     font-size: 14px;
@@ -283,21 +268,21 @@ textarea {
     text-align: center;
 }
 
-.login-form .form-group .theme-btn {
+.editjob-form .form-group .theme-btn {
     border: none;
     font-size: 14px;
     font-weight: 400;
 
 }
 
-.login-form .form-group .theme-btn {
+.editjob-form .form-group .theme-btn {
     display: block;
     width: 100%;
     margin-bottom: 10px;
 }
 
-/* 
-.btn-style-one {
+
+/* .btn-style-one {
     position: relative;
     text-align: center;
     white-space: nowrap;
@@ -310,7 +295,7 @@ textarea {
     padding: 18px 35px 15px;
 } */
 
-.login-form .text {
+.editjob-form .text {
     position: relative;
     font-size: 14px;
     line-height: 19px;
@@ -325,7 +310,7 @@ p {
     margin: 0;
 }
 
-.login-form .text a {
+.editjob-form .text a {
     color: dimgray;
     font-weight: 500;
 }
@@ -338,7 +323,7 @@ p {
 .register-dual ul li.react-tabs__tab--selected .btn-style-four {
     background: #34a853;
     color: #fff;
-    
+
 }
 
 .btn-style-four {
@@ -361,13 +346,9 @@ p {
 
 
 @media (min-width: 576px) {
-    .modal {
-        --bs-modal-margin: 1.5rem;
-        --bs-modal-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
-    }
 
-    .modal-dialog {
-        max-width: var(--bs-modal-width);
+
+    .editjobmodal-dialog {
         margin-right: auto;
         margin-left: auto;
     }
@@ -375,13 +356,10 @@ p {
 
 @media (min-width: 992px) {
 
-    .modal-lg,
-    .modal-xl {
-        --bs-modal-width: 450px;
-    }
+
 
     .col-lg-6 {
         flex: 0;
-        width: 50%;
+        width: 70%;
     }
 }

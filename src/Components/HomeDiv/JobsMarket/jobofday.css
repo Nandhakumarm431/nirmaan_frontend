@@ -1,5 +1,5 @@
 .mt-50 {
-    margin-top: 50px ;
+    margin-top: 50px;
     align-items: center;
 
 }
@@ -12,11 +12,11 @@
 
 
 .text-center {
-    text-align: center ;
+    text-align: center;
 }
 
 .mb-10 {
-    margin-bottom: 10px ;
+    margin-bottom: 10px;
 }
 
 
@@ -48,15 +48,15 @@ p {
 }
 
 .mt-70 {
-    margin-top: 70px ;
+    margin-top: 70px;
 }
 
 .mt-40 {
-    margin-top: 40px ;
+    margin-top: 40px;
 }
 
 .text-center {
-    text-align: center ;
+    text-align: center;
 }
 
 .nav-tabs,
@@ -147,7 +147,7 @@ img {
 }
 
 .mt-70 {
-    margin-top: 70px ;
+    margin-top: 70px;
 }
 
 .tab-content>.active {
@@ -257,7 +257,7 @@ h6 {
 }
 
 .mt-5 {
-    margin-top: 5px ;
+    margin-top: 5px;
 }
 
 .card-briefcase {
@@ -285,7 +285,7 @@ h6 {
 }
 
 .mt-15 {
-    margin-top: 15px ;
+    margin-top: 15px;
 }
 
 .color-text-paragraph {
@@ -294,12 +294,12 @@ h6 {
 
 .font-sm {
     font-weight: 500;
-    font-size: 14px ;
-    line-height: 22px ;
+    font-size: 14px;
+    line-height: 22px;
 }
 
 .mt-30 {
-    margin-top: 30px ;
+    margin-top: 30px;
 }
 
 .card-grid-2 a {
@@ -308,7 +308,7 @@ h6 {
 }
 
 .mr-5 {
-    margin-right: 5px ;
+    margin-right: 5px;
 }
 
 .btn-grey-small {
@@ -316,11 +316,11 @@ h6 {
     font-size: 12px;
     padding: 7px 10px;
     border-radius: 5px;
-    color: #4f5e64 ;
+    color: #4f5e64;
 }
 
 .btn {
-   border-radius: 8px;
+    border-radius: 8px;
     /* padding: 13px 25px; */
     font-size: 14px;
     line-height: 1;
@@ -334,7 +334,7 @@ h6 {
 }
 
 .mt-30 {
-    margin-top: 30px ;
+    margin-top: 30px;
 }
 
 @media (min-width: 992px) {
@@ -353,16 +353,16 @@ h6 {
 
 .card-grid-2 .card-block-info .card-text-price {
     color: #3c65f5;
-   font-weight: 700;
+    font-weight: 700;
     font-size: 22px;
 }
 
 .text-muted {
-    color: #6c757d ;
+    color: #6c757d;
 }
 
 .text-end {
-    text-align: right ;
+    text-align: right;
 }
 
 .card-grid-2 .btn-apply-now {
@@ -389,15 +389,15 @@ h6 {
 } */
 
 .overflow-visible {
-    overflow: visible ;
+    overflow: visible;
 }
 
 .mb-100 {
-    margin-bottom: 100px ;
+    margin-bottom: 100px;
 }
 
 .mt-100 {
-    margin-top: 100px ;
+    margin-top: 100px;
 }
 
 .box-image-job {
@@ -462,15 +462,15 @@ h6 {
 }
 
 .mt-40 {
-    margin-top: 40px ;
+    margin-top: 40px;
 }
 
 .pr-50 {
-    padding-right: 50px ;
+    padding-right: 50px;
 }
 
 .mt-40 {
-    margin-top: 40px ;
+    margin-top: 40px;
 }
 
 .btns-view {
@@ -496,13 +496,58 @@ h6 {
 }
 
 .overflow-visible {
-    overflow: visible ;
+    overflow: visible;
 }
 
 .mb-50 {
-    margin-bottom: 50px ;
+    margin-bottom: 50px;
 }
 
 .mt-50 {
-    margin-top: 50px ;
+    margin-top: 50px;
 }
+
+@media (min-width: 992px) {
+    .col-lg-6 {
+        /* flex: 0 1; */
+        width: 70%;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm {
+        max-width: 960px;
+    }
+
+    .col-lg-7 {
+        flex: 0 0 auto;
+        width: 40%;
+    }
+
+    .col-lg-5 {
+        flex: 0 0 auto;
+        width: 60%;
+    }
+}
+
+/* 
+@media (min-width: 768px) {
+
+    .container,
+    .container-md,
+    .container-sm {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 576px) {
+
+    .container,
+    .container-sm {
+        max-width: 540px;
+    }
+} */

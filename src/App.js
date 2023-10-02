@@ -10,6 +10,7 @@ import Logout from "./Components/LoginDiv/Logout";
 import Dashboard from "./Components/DashboardDiv/Dashboard";
 import PostJob from "./Components/ManageJobDiv/PostJob";
 import ManageJobs from "./Components/ManageJobDiv/ManageJobs";
+import CompanyProfile from "./Components/DashboardDiv/CompanyProfileDiv/CompanyProfile";
 
 function App() {
 
@@ -38,7 +39,7 @@ function App() {
           <Route exact path='/dashboard' component={Dashboard} />
           <Route exact path='/dashboard/postjob' component={PostJob} />
           <Route exact path='/dashboard/managejob' component={ManageJobs} />
-
+          <Route exact path="/dashboard/company-profile" component={CompanyProfile} />
         </Switch>
         <FooterMain />
       </Router>

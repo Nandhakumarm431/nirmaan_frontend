@@ -20,3 +20,18 @@ section {
 .d-flex {
     display: flex !important;
 }
+
+
+.btn-style-one {
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    border: 0;
+    color: #fff;
+    background-color: #1967d2;
+    font-size: 15px;
+    line-height: 20px;
+    border-radius: 8px;
+    font-weight: 400;
+    padding: 18px 35px 15px;
+}
