@@ -16,7 +16,7 @@
 }
 
 .user-sidebar {
-    position: fixed;
+    position: absolute;
     left: 0;
     bottom: 0;
     height: 100%;
@@ -279,7 +279,7 @@ p {
     }
 
     .user-sidebar .sidebar-inner {
-        padding: 20px 30px 40px;
+        padding: 50px 30px 40px;
     }
 
     .user-sidebar .navigation li a {

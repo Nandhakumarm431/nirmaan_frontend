@@ -1,58 +1,51 @@
 import React from 'react'
 import './footer.css'
-import logo from '../../assets/images/nirmaan_logo.png'
 import { Link } from 'react-router-dom/cjs/react-router-dom'
+import certificate1 from '../../assets/images/certificate1.png'
+import certificate2 from '../../assets/images/certificate2.png'
+
 
 const Footer = () => {
     return (
-        <footer className='footer mt-50'>
+        <footer className='footer mtop-50'>
             <div className="container">
                 <div className="row">
                     <div className='footer-col-1 col-md-3 col-sm-12'>
-                        <a href="/">
+                        {/* <a href="/">
                             <img alt="jobBox" className='logo-img' src={logo} />
-                        </a>
+                        </a> */}
 
-                        <div className="mt-20 mb-20 color-text-paragraph-1">
-                            <h6>CONTACT INFO</h6>
-                            <p>Flat No. 401, Jaihind Enclave, <br/>
-                             Madhapur, Hyderabad - 500081.<br/>
-                             contact@nirmaan.org  </p>
+                        <div className=" mb-20 color-text-paragraph-1">
+                            <h5 className='heading-footer'>CERTIFICATES</h5>
+                            <a href="/">
+                                <img alt="jobBox" className='certificate2-img' src={certificate2} />
+                            </a>
+                            <a href="/">
+                                <img alt="jobBox" className='certificate1-img' src={certificate1} />
+                            </a>
                         </div>
-                        <div className="footer-social">
-                            <a className="icon-socials icon-facebook" href="https://www.facebook.com/nirmaanorg" target='_blank'></a>
-                            <a className="icon-socials icon-twitter" href="https://twitter.com/Nirmaan_Org?lang=en" target='_blank'></a>
-                            <a className="icon-socials icon-linkedin" href="#https://www.linkedin.com/company/nirmaanorganization/" target='_blank'></a>
+                        <div className=" mb-20 color-text-paragraph-1">
+                            <h5 className='heading-footer'>CONTACT INFO</h5>
+                            <p>Flat No. 401, Jaihind Enclave, <br />
+                                Madhapur, Hyderabad - 500081.<br />
+                                contact@nirmaan.org  </p>
+                            <div className="footer-social">
+                                <Link className="icon-socials icon-facebook" to="https://www.facebook.com/nirmaanorg" target='_blank'></Link>
+                                <Link className="icon-socials icon-twitter" to="https://twitter.com/Nirmaan_Org?lang=en" target='_blank'></Link>
+                                <Link className="icon-socials icon-linkedin" to="#https://www.linkedin.com/company/nirmaanorganization/" target='_blank'></Link>
+                            </div>
                         </div>
+
                     </div>
-                    <div className="footer-col-2 col-md-2 col-xs-6">
-                        <h6 className="mb-20">Resources</h6>
+                    <div className="footer-col-2 color-text-paragraph-1">
+                        <h5 className='heading-footer'>RESOURCES</h5>
                         <ul className="menu-footer">
                             <li><Link to="/aboutus">About us</Link></li>
-                            <li><a href="#">Our Team</a></li>
-                            <li><a href="#">Products</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><Link to="/aboutus">Contact</Link></li>
                         </ul>
                     </div>
-                    <div className="footer-col-3 col-md-2 col-xs-6">
-                        <h6 className="mb-20">Community</h6>
-                        <ul className="menu-footer">
-                            <li><a href="#">Feature</a></li>
-                            <li><a href="#">Pricing</a></li>
-                            <li><a href="#">Credit</a></li>
-                            <li><a href="#">FAQ</a></li>
-                        </ul>
-                    </div>
-                    <div className="footer-col-4 col-md-2 col-xs-6">
-                        <h6 className="mb-20">Quick links</h6>
-                        <ul className="menu-footer">
-                            <li><a href="#">iOS</a></li>
-                            <li><a href="#">Android</a></li>
-                            <li><a href="#">Microsoft</a></li>
-                            <li><a href="#">Desktop</a></li>
-                        </ul>
-                    </div>
-                   
+
+
 
                 </div>
             </div>

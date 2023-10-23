@@ -2,9 +2,36 @@ import { Modal } from '@mui/material'
 import React from 'react'
 import { MdCancel } from 'react-icons/md';
 import './editjobdet.css'
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 const ViewJobDetail = ({ data, isOpen, onClose }) => {
+
+    const apiUrl = process.env.REACT_APP_API_URL;
+
+    const [locationname, setlocation] = useState('')
+    const [jobCategoryname, setjobCategory] = useState('')
+
+    useEffect(() => {
+        fetch(`${apiUrl}/getOneLocation/${data.locationDetailId}`)
+            .then(response => response.json())
+            .then(data => {
+                setlocation(data.location_name);
+            }).catch(error => {
+
+            });
+    }, []);
+
+    useEffect(() => {
+        fetch(`${apiUrl}/getOneJobCateg/${data.jobCategoryId}`)
+            .then(response => response.json())
+            .then(data => {
+                setjobCategory(data.category_name);
+            }).catch(error => {
+
+            });
+    }, []);
 
     if (!isOpen) return null;
     return (
@@ -64,13 +91,13 @@ const ViewJobDetail = ({ data, isOpen, onClose }) => {
                                                                 <div className="col-xl-6 col-md-3 forms-controfl">
                                                                     <label>Job Category</label>
                                                                     <input type="text"
-                                                                        value={data === null ? '' : data.job_source} readOnly={true} />
+                                                                        value={data === null ? '' : jobCategoryname} readOnly={true} />
 
                                                                 </div>
                                                                 <div className="col-xl-6 col-md-6 forms-controfl">
                                                                     <label>Location</label>
                                                                     <input type="text"
-                                                                        value={data === null ? '' : data.job_source} readOnly={true} />
+                                                                        value={data === null ? '' : locationname} readOnly={true} />
                                                                 </div>
 
 

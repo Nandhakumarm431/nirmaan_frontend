@@ -16,11 +16,11 @@ const WeHiring = () => {
                         <span className="color-brand-1">&nbsp;Explore&nbsp;</span>
                         Opportunities
                     </div>
-                    <div className="text-3">
+                    {/* <div className="text-3">
                         <div className="btn btn-apply btn-apply-icon" data-bs-toggle="modal" data-bs-target="#ModalApplyJobForm">
                             Apply now
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>

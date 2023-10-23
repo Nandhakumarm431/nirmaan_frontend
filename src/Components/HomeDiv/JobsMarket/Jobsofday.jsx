@@ -53,8 +53,8 @@ const Jobsofday = () => {
                             {jobCategoryDetails === undefined ?
                                 <></> :
                                 jobCategoryDetails.map((item) => (
-                                    <li key={item.category_name}>
-                                        <Link className="active" to={{ pathname: '/Jobscard', state: { data: item.category_name, input: '' } }}>
+                                    <li key={item.id}>
+                                        <Link className="active" to={{ pathname: '/Jobscard', state: { data: item.id, data2: 0, input: '' } }}>
                                             <img src={finance} alt="jobBox" />
                                             {item.category_name}</Link>
                                     </li>
@@ -82,8 +82,9 @@ const Jobsofday = () => {
                                 <div className="mt-40 pr-50 text-md-lh28 ">Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 600,000 companies worldwide. The right job is out there.</div>
                                 <div className="mt-40">
                                     <div className='btns-view'>
-                                        <a className="btn btn-default" href="/Jobscard">Search Jobs</a>
-                                        <a className="btn btn-link" href="/page-about">Learn More</a>
+                                        <Link className="btn btn-default" to={{ pathname: '/Jobscard', state: { data: 0, data2: 0, input: '' } }} >
+                                            Search Jobs </Link>
+                                        <a className="btn btn-link" href="/aboutus">Learn More</a>
                                     </div>
                                 </div>
                             </div>

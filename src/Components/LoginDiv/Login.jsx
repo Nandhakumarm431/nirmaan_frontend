@@ -76,6 +76,7 @@ const Login = ({ isOpen, onClose }) => {
                     // Access the userID
                     setUserID(userID);
                     NotificationManager.success(jsonResponse.message);
+                    setUsername(emailID);
                 }
 
                 // window.location.reload();
@@ -302,13 +303,13 @@ const Login = ({ isOpen, onClose }) => {
                                                                 <label>Password</label>
                                                                 <input type="password"
                                                                     value={password1} onChange={(e) => setPassword1(e.target.value)}
-                                                                    name="password1" placeholder="password1" />
+                                                                    name="password1" placeholder="password" />
                                                             </div>
                                                             <div className="form-group1">
                                                                 <label>Confirm Password</label>
                                                                 <input
                                                                     value={password2} onChange={(e) => setPassword2(e.target.value)}
-                                                                    type="password" name="password2" placeholder="password2" />
+                                                                    type="password" name="password2" placeholder="confirm password" />
                                                             </div>
                                                         </div>
 

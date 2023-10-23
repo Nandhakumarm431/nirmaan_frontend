@@ -64,7 +64,7 @@ const Dashboard = () => {
                                 </div>
                             ))}
                         </div>
-                        <div className='row'>
+                        {/* <div className='row'>
                             <div className="col-xl-7 col-lg-6">
                                 <div className="graph-widget ls-widget">
                                     <div className="tabs-box">
@@ -97,17 +97,15 @@ const Dashboard = () => {
                                         <div className="widget-content">
                                             <ul className="notification-list">
                                                 <li>
-                                                    {/* <span className="icon flaticon-briefcase"></span> */}
+                                                    <span className="icon flaticon-briefcase"></span>
                                                     <strong>Henry Wilson</strong> applied for a job
                                                     <span className="colored"> Product Designer</span>
                                                 </li>
                                                 <li>
-                                                    {/* <span className="icon flaticon-briefcase"></span> */}
                                                     <strong>Henry Wilson</strong> applied for a job
                                                     <span className="colored"> Product Designer</span>
                                                 </li>
                                                 <li>
-                                                    {/* <span className="icon flaticon-briefcase"></span> */}
                                                     <strong>Henry Wilson</strong> applied for a job
                                                     <span className="colored"> Product Designer</span>
                                                 </li>
@@ -116,7 +114,7 @@ const Dashboard = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </section>
             </div >

@@ -14,7 +14,7 @@ import Box from '@mui/material/Box';
 import './job.css'
 import { Button, Card, CardActions, CardContent, IconButton, Tooltip, Typography } from '@mui/material';
 // import { FaMapMarkerAlt } from 'react-icons/fa'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useHistory } from 'react-router-dom'
 
 
 
@@ -71,16 +71,18 @@ const Jobscard = () => {
     }, []);
 
     const location = useLocation();
+    const history = useHistory();
 
+    console.log('location data',location.state);
 
-    const receivedData = location.state === undefined ? '' : location.state.data;
+    const receivedData = location.state === undefined || location.state.data === '' ? 0 : location.state.data;
+    const receivedData2 = location.state === undefined || location.state.data2 === '' ? 0 : location.state.data2;
     const receivedText = location.state === undefined ? '' : location.state.input;
 
-
-    const [searchText, setsearchText] = useState(receivedText.toLowerCase());
+    const [searchText, setsearchText] = useState(receivedText === undefined || location.state === undefined ? '' : receivedText.toLowerCase());
     const [jobType, setJobType] = useState('');
-    const [searchData, setLocation] = useState(receivedData);
-
+    const [searchData, setLocation] = useState(receivedData2);
+    const [searchJobCate, setJobCategry] = useState(receivedData);
 
     const [postssortdate, sortBy] = useState('');
 
@@ -97,8 +99,13 @@ const Jobscard = () => {
     // }
 
     const searchLocation = (e) => {
-        const query = e.target.value
+        const query = parseInt(e.target.value)
         setLocation(query);
+    }
+
+    const searchJobCategry = (e) => {
+        const query = parseInt(e.target.value)
+        setJobCategry(query);
     }
 
 
@@ -116,17 +123,24 @@ const Jobscard = () => {
             : a.PostDate !== null && a.PostDate.localeCompare(b.PostDate)
     );
 
-    const searLocFilter = sortfilter.filter(item3 =>
-        searchData ? item3.job_source === searchData : true)
+    const searJobCateFilter = sortfilter.filter(item3 =>
+        searchJobCate === 0 || item3.jobCategoryId === parseInt(searchJobCate))
 
+    const searLocFilter = searJobCateFilter.filter(item3 =>
+        searchData === 0 || item3.locationDetailId === parseInt(searchData))
 
 
     const [cardViewmode, setcardViewmode] = useState(false)
 
 
     const clearText = () => {
+        const updatedLocation = { ...location, state: { data: 0, data2: 0, input: '' } };
+        history.replace(updatedLocation.pathname, updatedLocation);
+
         setsearchText('');
-        setLocation('');
+
+        setLocation(0);
+        setJobCategry(0);
         setJobType('');
         sortBy('');
     }
@@ -273,13 +287,13 @@ const Jobscard = () => {
                                                         <Table  >
                                                             <TableHead className='table-header'>
                                                                 <TableRow className='table-row'>
-                                                                    <TableCell className='table-cell' style={{ color:'#1967d2', fontWeight: '600', minWidth: '120px' }}>Post Date</TableCell>
-                                                                    <TableCell className='table-cell' style={{ color:'#1967d2', fontWeight: '600',  minWidth: '100px' }}>Recruitment Board</TableCell>
-                                                                    <TableCell className='table-cell' style={{ color:'#1967d2', fontWeight: '600',  minWidth: '100px' }}>Post Name</TableCell>
-                                                                    <TableCell className='table-cell' style={{ color:'#1967d2', fontWeight: '600',  minWidth: '100px' }}>Qualification</TableCell>
-                                                                    <TableCell className='table-cell' style={{ color:'#1967d2', fontWeight: '600',  minWidth: '100px' }}>Advt No</TableCell>
-                                                                    <TableCell className='table-cell' style={{ color:'#1967d2', fontWeight: '600',  minWidth: '120px' }}>Last Date</TableCell>
-                                                                    <TableCell className='table-cell' style={{ color:'#1967d2', fontWeight: '600',  minWidth: '100px' }}>More Info</TableCell>
+                                                                    <TableCell className='table-cell' style={{ color: '#1967d2', fontWeight: '600', minWidth: '120px' }}>Post Date</TableCell>
+                                                                    <TableCell className='table-cell' style={{ color: '#1967d2', fontWeight: '600', minWidth: '100px' }}>Recruitment Board</TableCell>
+                                                                    <TableCell className='table-cell' style={{ color: '#1967d2', fontWeight: '600', minWidth: '100px' }}>Post Name</TableCell>
+                                                                    <TableCell className='table-cell' style={{ color: '#1967d2', fontWeight: '600', minWidth: '100px' }}>Qualification</TableCell>
+                                                                    <TableCell className='table-cell' style={{ color: '#1967d2', fontWeight: '600', minWidth: '100px' }}>Advt No</TableCell>
+                                                                    <TableCell className='table-cell' style={{ color: '#1967d2', fontWeight: '600', minWidth: '120px' }}>Last Date</TableCell>
+                                                                    <TableCell className='table-cell' style={{ color: '#1967d2', fontWeight: '600', minWidth: '100px' }}>More Info</TableCell>
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>
@@ -333,7 +347,7 @@ const Jobscard = () => {
                                     <div className='sidebar-filters'>
                                         <div className="filter-block head-border mb-30">
                                             <h5>Advance Filter</h5>
-                                            {searchText === '' && postssortdate === '' && jobType === '' && searchData === '' ?
+                                            {searchText === '' && postssortdate === '' && jobType === '' && searchData === '' && searchJobCate === '' ?
                                                 <></> :
                                                 <button onClick={clearText} className="btn-danger txt-btn">Clear All</button>
                                             }
@@ -347,9 +361,9 @@ const Jobscard = () => {
                                                     value={searchData} onChange={searchLocation} label="Location" placeholder='select Location'>
                                                     <option>Choose a Location</option>
                                                     {locationDetails === undefined ?
-                                                        <option value="true"></option> :
+                                                        <option value={null}></option> :
                                                         locationDetails.map((item) => (
-                                                            <option key={item.location_name} value={item.location_name}>
+                                                            <option key={item.id} value={item.id}>
                                                                 {item.location_name}
                                                             </option>
                                                         ))}
@@ -361,14 +375,14 @@ const Jobscard = () => {
                                                 Job Category</h5>
                                             <div className="form-group">
                                                 <select className="form-control category-select form-icons select-active"
-                                                    value={searchData} onChange={searchLocation} label="Location" placeholder='select Location'>
+                                                    value={searchJobCate} onChange={searchJobCategry} label="Location" placeholder='select Location'>
 
                                                     <option>Choose a Category</option>
                                                     {jobCategoryDetails === undefined ?
-                                                        <option value="true"></option> :
+                                                        <option value={null}></option> :
                                                         jobCategoryDetails.map((item) => (
 
-                                                            <option key={item.category_name} value={item.category_name}>
+                                                            <option key={item.id} value={item.id}>
                                                                 {item.category_name}
                                                             </option>
                                                         ))}

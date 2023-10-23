@@ -164,13 +164,13 @@ const ForgetPassword = ({ ispassChangeOpen, onpasschangeClose }) => {
                                                         <label>Password</label>
                                                         <input type="password"
                                                             value={password1} onChange={(e) => setPassword1(e.target.value)}
-                                                            name="password1" placeholder="password1" />
+                                                            name="password1" placeholder="password" />
                                                     </div>
                                                     <div className="form-group1">
                                                         <label>Confirm Password</label>
                                                         <input
                                                             value={password2} onChange={(e) => setPassword2(e.target.value)}
-                                                            type="password" name="password2" placeholder="password2" />
+                                                            type="password" name="password2" placeholder="confirm password" />
                                                     </div>
                                                     <div className="form-group">
                                                         <div className='btn-align'>
@@ -181,28 +181,6 @@ const ForgetPassword = ({ ispassChangeOpen, onpasschangeClose }) => {
                                             </div>
                                         </div>
                                     </div>
-
-
-                                    {/* Password change Div */}
-
-                                    {/* <div id="login-modal" style={{ display: passchangetab ? "block" : 'none' }}>
-                                        <div className="login-form default-form">
-                                            <div className="form-inner">
-                                                <h3>Reset Password</h3>
-                                                <form method="post" onSubmit={resetPasswordsubmit}>
-                                                    <div className='form-df'>
-
-                                                    </div>
-
-                                                    <div className="form-group">
-                                                        <div className='btn-align'>
-                                                            <button className="theme-btn btn-style-one" type="submit" name="passwordchange">Submit Password </button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div> */}
                                 </div>
                             </div>
                         </div>

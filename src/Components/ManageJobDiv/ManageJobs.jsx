@@ -17,9 +17,46 @@ import 'react-notifications/lib/notifications.css';
 
 const ManageJobs = () => {
 
-    const [alljobsdet, setAlljobsdet] = useState('');
 
+    const currentUserJSON = localStorage.getItem("userData");
+
+    const currentUser = JSON.parse(currentUserJSON);
+    const userID = currentUser ? currentUser.id : null;
     const apiUrl = process.env.REACT_APP_API_URL;
+
+
+    const [locationDetails, setLocationDetails] = useState([]);
+    const [jobCategoryDetails, setJobCategoryDetails] = useState([]);
+
+    useEffect(() => {
+        fetch(`${apiUrl}/getlocationDetls`)
+            .then(response => response.json())
+            .then(data => {
+                const locationMap = {};
+                data.forEach(location => {
+                    locationMap[location.id] = location.location_name;
+                });
+                setLocationDetails(locationMap);
+            }).catch(error => {
+
+            });
+    }, []);
+
+    useEffect(() => {
+        fetch(`${apiUrl}/getJobCategories`)
+            .then(response => response.json())
+            .then(data => {
+                const jobCategoriesMap = {};
+                data.forEach(jobCateg => {
+                    jobCategoriesMap[jobCateg.id] = jobCateg.category_name;
+                });
+                setJobCategoryDetails(jobCategoriesMap);
+            }).catch(error => {
+
+            });
+    }, []);
+
+    const [joblistdata, setAlljobsdet] = useState([]);
 
     useEffect(() => {
         fetch(`${apiUrl}/getAlljobdet`)
@@ -30,6 +67,9 @@ const ManageJobs = () => {
 
             });
     }, []);
+
+    const alljobsdet = joblistdata.filter(item3 =>
+        userID ? item3.created_by === userID : true)
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -136,71 +176,7 @@ const ManageJobs = () => {
                                                         No Jobs Available
                                                     </div>
                                                     :
-                                                    // <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-                                                    //     <TableContainer className='table-container-view' sx={{ maxHeight: 500 }}>
-                                                    //         <Table stickyHeader
-                                                    //             aria-label="sticky table"
-                                                    //             // aria-label="a dense table"
-                                                    //             size="small" >
-                                                    //             <TableHead className='table-header'>
-                                                    //                 <TableRow>
-                                                    //                     <TableCell style={{ fontWeight: '600', minWidth: '100px', backgroundColor: '#a4aba6' }}>Post Date</TableCell>
-                                                    //                     <TableCell style={{ fontWeight: '600', minWidth: '100px', backgroundColor: '#a4aba6' }}>Recruitment Board</TableCell>
-                                                    //                     <TableCell style={{ fontWeight: '600', minWidth: '100px', backgroundColor: '#a4aba6' }}>Post Name</TableCell>
-                                                    //                     <TableCell style={{ fontWeight: '600', minWidth: '100px', backgroundColor: '#a4aba6' }}>Qualification</TableCell>
-                                                    //                     <TableCell style={{ fontWeight: '600', minWidth: '100px', backgroundColor: '#a4aba6' }}>Advt No</TableCell>
-                                                    //                     <TableCell style={{ fontWeight: '600', minWidth: '140px', backgroundColor: '#a4aba6' }}>Last Date</TableCell>
-                                                    //                     <TableCell style={{ fontWeight: '600', minWidth: '100px', backgroundColor: '#a4aba6' }}>More Information</TableCell>
-                                                    //                     <TableCell style={{ fontWeight: '600', minWidth: '100px', backgroundColor: '#a4aba6' }}>Action</TableCell>
-                                                    //                 </TableRow>
-                                                    //             </TableHead>
-                                                    //             <TableBody>
-                                                    //                 {
-                                                    //                     alljobsdet
-                                                    //                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                                    //                         .map((row, index) => {
-                                                    //                             return (
-                                                    //                                 <TableRow hover role="checkbox" key={index}>
-                                                    //                                     <TableCell>{row.PostDate}</TableCell>
-                                                    //                                     {row.RecruitmentBoard === '' || row.RecruitmentBoard === null ?
-                                                    //                                         <TableCell>{row.BankName}</TableCell> :
-                                                    //                                         <TableCell>{row.RecruitmentBoard}</TableCell>
-                                                    //                                     }
 
-                                                    //                                     {row.job_source === 'SSC' || row.job_source === 'UPSC' ?
-                                                    //                                         <TableCell> {row.ExamPostName} </TableCell> :
-                                                    //                                         <TableCell>{row.PostName}</TableCell>
-                                                    //                                     }
-                                                    //                                     <TableCell>{row.Qualification}</TableCell>
-                                                    //                                     <TableCell>{row.AdvtNo}</TableCell>
-                                                    //                                     <TableCell>{row.LastDate}</TableCell>
-                                                    //                                     <TableCell><a href={row.MoreInformation} target='_new'>Get Details</a></TableCell>
-
-                                                    //                                     <TableCell>
-                                                    //                                         <div className="option-box">
-                                                    //                                             <ul className="option-list">
-                                                    //                                                 <li><FiEye className='icon-manage' /></li>
-                                                    //                                                 <li><FiEdit3 onClick={() => handleRowClick(row.id)} className='icon-manage' /></li>
-                                                    //                                                 <li><FiDelete className='icon-manage' /></li>
-                                                    //                                             </ul>
-                                                    //                                         </div>
-                                                    //                                     </TableCell>
-                                                    //                                 </TableRow>
-                                                    //                             );
-                                                    //                         })}
-                                                    //             </TableBody>
-                                                    //         </Table>
-                                                    //     </TableContainer>
-                                                    //     <TablePagination
-                                                    //         rowsPerPageOptions={[10, 25, 100]}
-                                                    //         component="div"
-                                                    //         count={alljobsdet === undefined ? null : alljobsdet.length}
-                                                    //         rowsPerPage={rowsPerPage}
-                                                    //         page={page}
-                                                    //         onPageChange={handleChangePage}
-                                                    //         onRowsPerPageChange={handleChangeRowsPerPage}
-                                                    //     />
-                                                    // </Paper>
                                                     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
                                                         <TableContainer className='table-container-view' sx={{ maxHeight: 500 }}>
 
@@ -223,7 +199,8 @@ const ManageJobs = () => {
                                                                                                             <h5>{row.Qualification}</h5>
                                                                                                             <ul className="job-info">
                                                                                                                 <li><span className="icon flaticon-briefcase"></span>{row.BankName}</li> -
-                                                                                                                <li><span className="icon flaticon-map-locator"></span>{row.job_source}</li>
+                                                                                                                {row.jobCategoryId !== null ? <li><span className="icon flaticon-map-locator"></span>{jobCategoryDetails[row.jobCategoryId]}</li> : <></>}
+                                                                                                                {row.locationDetailId !== null ? <li><span className="icon flaticon-map-locator"></span>{locationDetails[row.locationDetailId]}</li> : <></>}
                                                                                                             </ul>
                                                                                                         </div>
                                                                                                     </div>
@@ -237,9 +214,9 @@ const ManageJobs = () => {
                                                                                                             <h5><a href={row.MoreInformation}>{row.PostName}</a></h5>
                                                                                                             <h4>{row.Qualification}</h4>
                                                                                                             <ul className="job-info">
-                                                                                                                <li>
-                                                                                                                    <span className="icon flaticon-briefcase"></span>{row.RecruitmentBoard}</li> -
-                                                                                                                <li><span className="icon flaticon-map-locator"></span>{row.job_source}</li>
+                                                                                                                <li><span className="icon flaticon-briefcase"></span>{row.RecruitmentBoard}</li> -
+                                                                                                                {row.jobCategoryId !== null ? <li><span className="icon flaticon-map-locator"></span>{jobCategoryDetails[row.jobCategoryId]}</li> : <></>}
+                                                                                                                {row.locationDetailId !== null ? <li><span className="icon flaticon-map-locator"></span>{locationDetails[row.locationDetailId]}</li> : <></>}
                                                                                                             </ul>
                                                                                                         </div>
                                                                                                     </div>

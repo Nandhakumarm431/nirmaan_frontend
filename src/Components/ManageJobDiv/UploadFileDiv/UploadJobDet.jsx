@@ -13,11 +13,16 @@ const UploadJobDet = ({ isOpen, onClose }) => {
     const [file, setFile] = useState();
     const apiUrl = process.env.REACT_APP_API_URL;
 
+    const currentUserJSON = localStorage.getItem("userData");
+
+    const currentUser = JSON.parse(currentUserJSON);
+    const userID = currentUser ? currentUser.id : null;
 
     const sendFile = async (e) => {
         e.preventDefault();
         let formData = new FormData();
         formData.append('file', file.file);
+        formData.append('userid', userID);
         if (file == null || file === undefined) {
             NotificationManager.error('please upload file');
 
@@ -32,7 +37,7 @@ const UploadJobDet = ({ isOpen, onClose }) => {
 
                 });
                 if (response.ok) {
-                    // window.location = "/dashboard/managejob";
+                    window.location = "/dashboard/managejob";
                     NotificationManager.success('Bulk job details successfully uploaded');
                     onClose()
                 }

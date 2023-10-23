@@ -26,6 +26,12 @@ const PostJob = () => {
     const [locationDetails, setLocationDetails] = useState([]);
     const [jobCategoryDetails, setJobCategoryDetails] = useState([]);
 
+    const currentUserJSON = localStorage.getItem("userData");
+
+    const currentUser = JSON.parse(currentUserJSON);
+    const userID = currentUser ? currentUser.id : null;
+
+    console.log('userID ', userID);
 
     useEffect(() => {
         fetch(`${apiUrl}/getlocationDetls`)
@@ -47,40 +53,48 @@ const PostJob = () => {
             });
     }, []);
 
+
+    const lastDateObj = new Date(lastDate);
+    const postDateObj = new Date(postDate);
+
     const onSavePostDetails = async (e) => {
         e.preventDefault();
+        if (postDateObj >= lastDateObj) {
+            NotificationManager.error('Last date is not less than post date');
+        } else {
 
-        let postdata = {
-            "job_source": jobSource,
-            "PostDate": postDate,
-            "RecruitmentBoard": requirmntBoard,
-            "PostName": postname,
-            "ExamPostName": examPostName,
-            "BankName": bankName,
-            "Qualification": qualification,
-            "AdvtNo": advtno,
-            "LastDate": lastDate,
-            "MoreInformation": moreInformation,
-            "location_name": jobLocation,
-            "job_category": jobSource
+            let postdata = {
+                "job_source": jobSource,
+                "PostDate": postDate,
+                "RecruitmentBoard": requirmntBoard,
+                "PostName": postname,
+                "ExamPostName": examPostName,
+                "BankName": bankName,
+                "Qualification": qualification,
+                "AdvtNo": advtno,
+                "LastDate": lastDate,
+                "MoreInformation": moreInformation,
+                "location_name": jobLocation,
+                "job_category": jobSource,
+                "created_by": userID
+            }
+
+            const requestOptions = {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(postdata),
+            }
+
+            fetch(`${apiUrl}/jobdet`, requestOptions)
+                .then(response => response.json())
+                .then(data => {
+                    window.location = "/dashboard/managejob";
+                    NotificationManager.success('Job Details added successfully');
+                })
+                .catch(error => {
+                    NotificationManager.error('Internal server error, Please try again later');
+                })
         }
-
-        
-        const requestOptions = {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(postdata),
-        }
-
-        fetch(`${apiUrl}/jobdet`, requestOptions)
-            .then(response => response.json())
-            .then(data => {
-                window.location = "/dashboard/managejob";
-                NotificationManager.success('Job Details added successfully');
-            })
-            .catch(error => {
-                NotificationManager.error('Internal server error, Please try again later');
-            })
     }
 
 

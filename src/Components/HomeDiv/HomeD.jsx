@@ -57,6 +57,8 @@ const HomeD = () => {
     }, []);
 
     const [selectedText, setSelectedText] = useState('');
+    const [selectedText2, setSelectedText2] = useState('');
+
     const [searchData, setsearchData] = useState('');
 
     const searchLocation = (e) => {
@@ -64,11 +66,15 @@ const HomeD = () => {
         setSelectedText(query);
     }
 
+    const searchJobCategory = (e) => {
+        const query = e.target.value
+        setSelectedText2(query);
+    }
+
     const searchKeyword = (e) => {
         const query = e.target.value
         setsearchData(query);
     }
-
 
     return (
         <main className='main'>
@@ -86,7 +92,7 @@ const HomeD = () => {
                                         to Get Your New Job
                                     </h1>
                                     <div className="banner-description mt-20 " data-wow-delay=".1s">
-                                        Each month, more than 3 million job seekers turn to
+                                        Each month, more than 3 million job seekers turn to&nbsp;
                                         <br className="d-none d-lg-block" />
                                         website in their search for work, making over 140,000
                                         <br className="d-none d-lg-block" />
@@ -97,11 +103,11 @@ const HomeD = () => {
                                             <div className="box-industry">
                                                 <select className="form-input mr-10  input-industry"
                                                     value={selectedText} onChange={searchLocation}>
-                                                    <option value="true">Choose a Category</option>
+                                                    <option value={null}>Choose a Category</option>
                                                     {jobCategoryDetails === undefined ?
-                                                        <option value="true"></option> :
+                                                        <option value={null}></option> :
                                                         jobCategoryDetails.map((item) => (
-                                                            <option key={item.category_name} value={item.category_name} className='option-item'>
+                                                            <option key={item.id} value={item.id} className='option-item'>
                                                                 {item.category_name}
                                                             </option>
 
@@ -110,12 +116,12 @@ const HomeD = () => {
                                             </div>
                                             <div className="box-industry">
                                                 <select className="form-input mr-10 input-location"
-                                                    value={selectedText} onChange={searchLocation} >
-                                                    <option value="true">Choose a Location </option>
+                                                    value={selectedText2} onChange={searchJobCategory} >
+                                                    <option value={null}>Choose a Location </option>
                                                     {locationDetails === undefined ?
-                                                        <option value="true"></option> :
+                                                        <option value={null}></option> :
                                                         locationDetails.map((item) => (
-                                                            <option key={item.location_name} value={item.location_name}>
+                                                            <option key={item.id} value={item.id}>
                                                                 {item.location_name}
                                                             </option>
                                                         ))}
@@ -125,7 +131,7 @@ const HomeD = () => {
                                                 className="form-input input-keysearch mr-10" type="text" placeholder="Your keyword... "></input>
                                             <Link className="active"
                                                 // to='/Jobscard' 
-                                                to={{ pathname: '/Jobscard', state: { data: selectedText, input: searchData } }}>
+                                                to={{ pathname: '/Jobscard', state: { data: selectedText, data2: selectedText2, input: searchData } }}>
                                                 <button className="btn btn-default btn-find">Search</button>
                                             </Link>
                                         </form>
@@ -135,7 +141,7 @@ const HomeD = () => {
                                         {quickSearch === undefined ?
                                             <a href='F'>sample</a> :
                                             quickSearch.map((item) => (
-                                                <Link to={{ pathname: '/Jobscard', state: { data: selectedText, input: item.searchname } }}
+                                                <Link to={{ pathname: '/Jobscard', state: { data: selectedText, data2: selectedText2, input: item.searchname } }}
                                                     key={item.id}>{item.searchname}, </Link>
                                             ))}
                                         {/* <a href="/Jobscard">Driver, </a><a href="/Jobscard">Junior Engineer, </a><a href="/Jobscard">Medical Officer, </a><a href="/Jobscard">PGT, </a><a href="/Jobscard">Sr Resident, </a><a href="/Jobscard">Staff Nurse, </a> */}

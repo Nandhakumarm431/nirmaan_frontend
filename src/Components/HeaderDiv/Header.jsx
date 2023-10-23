@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import userprofile from '../../assets/images/user3.png'
 import { FaBell } from 'react-icons/fa'
 import { BiChevronDown } from 'react-icons/bi'
+import TopBar from './TopBarDiv/TopBar';
 
 
 const Header = () => {
@@ -21,21 +22,24 @@ const Header = () => {
     const name = currentUser ? currentUser.name : null;
     const role = currentUser ? currentUser.roles[0] : null;
 
-
     const nav = [
         { id: 1, url: "/", navLink: "Home" },
         { id: 2, url: "/Jobscard", navLink: "Find a Job" },
         { id: 4, url: "/aboutus", navLink: "About Us" }
     ]
 
-    const profileNav = [
-        { id: 1, url: "/dashboard/managejob", navLink: "Manage Jobs" },
-        role === "ROLE_USER" ?
-            { id: 2, url: "/myprofile", navLink: "My Profile" } :
-            { id: 2, url: "/dashboard", navLink: "Dashboard" },
-        { id: 3, url: "/dashboard", navLink: "Bookmarks Jobs" },
-        { id: 4, url: "/logout", navLink: "Logout" },
-    ]
+    const profileNav =
+        role === "ROLE_USER" ? [
+            { id: 1, url: "/dashboard/company-profile", navLink: "My Profile" },
+            { id: 2, url: "/logout", navLink: "Logout" },
+        ]
+            :
+            [
+                { id: 1, url: "/dashboard/managejob", navLink: "Manage Jobs" },
+                { id: 2, url: "/dashboard/company-profile", navLink: "My Profile" },
+                { id: 3, url: "/dashboard", navLink: "Dashboard" },
+                { id: 4, url: "/logout", navLink: "Logout" },
+            ]
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -57,6 +61,8 @@ const Header = () => {
 
     return (
         <header className='header sticky-bar stick'>
+            <TopBar />
+            <hr style={{ margin: '0' }} />
             <div className='container'>
                 <div className='main-header'>
                     <div className="header-left">
@@ -98,7 +104,7 @@ const Header = () => {
                         <div className="header-right">
                             <ul className='header-menu list-inline d-flex align-items-center mb-0'>
                                 <li className='list-inline-item dropdown me-4'>
-                                    <a onClick={() => setnotifyclick(true)} className='header-item noti-icon position-relative'>
+                                    {/* <a onClick={() => setnotifyclick(true)} className='header-item noti-icon position-relative'>
                                         <FaBell className='mdi mdi-bell fs-22' />
                                         <div className="count position-absolute">3</div>
                                     </a>
@@ -107,7 +113,7 @@ const Header = () => {
                                             <h6 className="mb-1"> Notification </h6>
                                             <p className="text-muted fs-13 mb-0">You have 4 unread Notification</p>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </li>
                                 <li className='list-inline-item dropdown'>
                                     <a className='header-item' onClick={() => setprofileclick(true)} >

@@ -11,6 +11,11 @@ const EditJobDetails = ({ data, isOpen, onClose }) => {
 
     const apiUrl = process.env.REACT_APP_API_URL;
 
+    const currentUserJSON = localStorage.getItem("userData");
+
+    const currentUser = JSON.parse(currentUserJSON);
+    const userID = currentUser ? currentUser.id : null;
+
     // const [data, setoneJobDetail] = useState(data)
     const [jobSource, setJobSource] = useState(data === null ? '' : data.job_source)
     const [jobLocation, setJobLocation] = useState(data === null ? '' : data.job_source)
@@ -24,8 +29,10 @@ const EditJobDetails = ({ data, isOpen, onClose }) => {
     const [lastDate, setLastDate] = useState(data === null ? '' : data.LastDate)
     const [moreInformation, setMoreInformtn] = useState(data === null ? '' : data.MoreInformation)
 
-    const jobID = useState(data === null ? '' : data.id)
+    const [locationID, setlocationID] = useState(data === null ? '' : data.locationDetailId)
+    const [jobCategoryID, setjobCategoryID] = useState(data === null ? '' : data.jobCategoryId)
 
+    const jobID = useState(data === null ? '' : data.id)
     const [locationDetails, setLocationDetails] = useState([]);
     const [jobCategoryDetails, setJobCategoryDetails] = useState([]);
 
@@ -65,12 +72,15 @@ const EditJobDetails = ({ data, isOpen, onClose }) => {
             "LastDate": lastDate,
             "MoreInformation": moreInformation,
             "location_name": jobLocation,
-            "job_category": jobSource
+            "job_category": jobSource,
+            "created_by": userID,
+            "locationDetailId":locationID,
+            "jobCategoryId":jobCategoryID
         }
 
 
         try {
-            const response = await fetch(`${apiUrl}/updateData/${jobID}`, {
+            const response = await fetch(`${apiUrl}/updateData/${jobID[0]}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -146,13 +156,13 @@ const EditJobDetails = ({ data, isOpen, onClose }) => {
                                                                 <div className="col-xl-6 col-md-3 forms-controfl">
                                                                     <label>Job Category</label>
                                                                     <select className="jm-job-select"
-                                                                        value={jobSource} onChange={(e) => setJobSource(e.target.value)}>
+                                                                        value={jobCategoryID} onChange={(e) => setjobCategoryID(e.target.value)}>
                                                                         <option>Select Category</option>
                                                                         {jobCategoryDetails === undefined ?
                                                                             <option value="true"></option> :
                                                                             jobCategoryDetails.map((item) => (
 
-                                                                                <option key={item.category_name} value={item.category_name}>
+                                                                                <option key={item.id} value={item.id}>
                                                                                     {item.category_name}
                                                                                 </option>
                                                                             ))}
@@ -162,12 +172,12 @@ const EditJobDetails = ({ data, isOpen, onClose }) => {
                                                                 <div className="col-xl-6 col-md-6 forms-controfl">
                                                                     <label>Location</label>
                                                                     <select className="jm-job-select"
-                                                                        value={jobLocation} onChange={(e) => setJobLocation(e.target.value)}>
+                                                                        value={locationID} onChange={(e) => setlocationID(e.target.value)}>
                                                                         <option>Select Location</option>
                                                                         {locationDetails === undefined ?
                                                                             <option value="true"></option> :
                                                                             locationDetails.map((item) => (
-                                                                                <option key={item.location_name} value={item.location_name}>
+                                                                                <option key={item.id} value={item.id}>
                                                                                     {item.location_name}
                                                                                 </option>
                                                                             ))}
